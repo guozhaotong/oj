@@ -1,9 +1,7 @@
 package medium;
 
-import sun.rmi.server.InactiveGroupException;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**Given a string, find the length of the longest substring without repeating characters.
  *
