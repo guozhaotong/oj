@@ -35,8 +35,15 @@ public class M015_3Sum {
         if (r.size() == 0) {
             return false;
         }
+        if(r.size() == 1){
+            if((r.get(0).get(0) == n.get(0)) && (r.get(0).get(1) == n.get(1)) && (r.get(0).get(2) == n.get(2))) {
+                return true;
+            }
+            else return false;
+        }
         List<Integer> rl = r.get(r.size()-1);
-        if(rl.get(0) == n.get(0) && rl.get(1) == n.get(1) && rl.get(2) == n.get(2) )
+        List<Integer> rm = r.get(r.size()-2);
+        if((rl.get(0) == n.get(0) && rl.get(1) == n.get(1) && rl.get(2) == n.get(2)) || (rm.get(0) == n.get(0) && rm.get(1) == n.get(1) && rm.get(2) == n.get(2)) )
             return true;
         return false;
     }
@@ -56,44 +63,28 @@ public class M015_3Sum {
         System.out.println(nums.length);
         Arrays.sort(nums);
         System.out.println(Arrays.toString(nums));
-        int len = 2;
-        for(int i = 2; i < nums.length; i++){
-            if(nums[i] != 0){
-                if(nums[i] != nums[i-2])
-                nums[len++] = nums[i];
-            }
-            else {
-                if(i < 3){
-                    nums[len++] = nums[i];
-                }
-                else if(nums[i] != nums[i-3]){
-                    nums[len++] = nums[i];
-                }
-            }
-        }
-        System.out.println(len);
-        System.out.println(Arrays.toString(nums));
-        if (len < 3) {
-            return result;
-        }
-        for (int i = 0; i < len - 2; i++) {
-            for (int j = i + 1; j < len - 1; j++) {
-                for (int k = j + 1; k < len; k++) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
-                        List<Integer> r = new ArrayList<Integer>();
-                        r.add(nums[i]);
-                        r.add(nums[j]);
-                        r.add(nums[k]);
-                        if(!isExist(result, r))
-                        result.add(r);
+                        result.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    }
+                    while ((k < nums.length - 1) && (nums[k] == nums[k+1])){
+                        k++;
                     }
                 }
+                while ((j < nums.length - 2) && (nums[j] == nums[j+1])){
+                    j++;
+                }
+            }
+            while ((i < nums.length - 3) && (nums[i] == nums[i+1]) ){
+                i++;
             }
         }
         return result;
     }
     public static void main(String[] args) {
-        int[] nums = {-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
+        int[] nums = {-1,-2,-3,4,1,3,0,3,-2,1,-2,2,-1,1,-5,4,-3};
         List<List<Integer>> res = threeSum1(nums);
 //        for(List<Integer> integers : res){
 //            for(int i : res){
