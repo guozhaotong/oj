@@ -9,16 +9,30 @@ import java.util.*;
 public class M017_letterCombinationsOfAPhoneNumber {
     public static List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<String>();
+        List<String> newRes = new ArrayList<String>();
         HashMap<Character, char[]> map = makeMap();
         char[] input = digits.toCharArray();
         for(char ci : input){
-
+            if(res.size() == 0){
+                for(char cm : map.get(ci)){
+                    newRes.add(String.valueOf(cm));
+                }
+            }
+            else {
+                for(String s : res){
+                    for (char cm : map.get(ci)){
+                        newRes.add(s+cm);
+                    }
+                }
+            }
+            res = new ArrayList<String>(newRes);
+            newRes = new ArrayList<String>();
         }
         return res;
     }
-
-    public static List<String> append(List<String> list){
-        return list;
+    public static void main(String[] args) {
+        List<String> list = letterCombinations("23");
+        System.out.println(list);
     }
 
     public static HashMap<Character, char[]> makeMap() {
@@ -47,12 +61,5 @@ public class M017_letterCombinationsOfAPhoneNumber {
         chars = new char[]{'+'};
         map.put('*', chars);
         return map;
-    }
-
-    public static void main(String[] args) {
-        HashMap<Character, char[]> map = makeMap();
-        for (char c : map.get('1')) System.out.println(c);
-        for (char c : map.get('2')) System.out.println(c);
-        for (char c : map.get('3')) System.out.println(c);
     }
 }
