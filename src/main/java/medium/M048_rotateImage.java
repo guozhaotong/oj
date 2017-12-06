@@ -1,5 +1,6 @@
 package medium;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -36,8 +37,6 @@ public class M048_rotateImage {
     public static void main(String[] args){
         int[][] matrix = {{5, 1, 9,11},{2, 4, 8,10},{13, 3, 6, 7},{15,14,12,16}};
         rotate(matrix);
-        for(int[] x : matrix){
-            System.out.println(Arrays.toString(x));
-        }
+        System.out.println(Arrays.deepToString(matrix));
     }
 }

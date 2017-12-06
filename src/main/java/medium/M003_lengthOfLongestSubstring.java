@@ -15,7 +15,9 @@ import java.util.HashMap;
  */
 public class M003_lengthOfLongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
-        if(s.length() == 0) return 0;
+        if(s.length() == 0) {
+            return 0;
+        }
         int max = 0;
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         for(int i = 0, j = 0; i < s.length(); i++){
