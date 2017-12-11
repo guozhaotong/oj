@@ -12,14 +12,15 @@ public class M036_validSudoku {
         while(i < board.length){
             HashSet<Character> setRow = new HashSet<>();
             HashSet<Character> setCol = new HashSet<>();
+            j = 0;
             while(j < board.length){
-                if(!(board[i][j] == '.') && !setRow.contains(board[i][j])){
+                if(board[i][j] == '.' || (!(board[i][j] == '.') && !setRow.contains(board[i][j]))){
                     setRow.add(board[i][j]);
                 } else {
                     System.out.println(1);
                     return false;
                 }
-                if(!(board[j][i] == '.') && !setCol.contains(board[j][i])){
+                if(board[j][i] == '.' || (!(board[j][i] == '.') && !setCol.contains(board[j][i]))){
                     setCol.add(board[j][i]);
                 } else {
                     System.out.println(2);
@@ -35,7 +36,7 @@ public class M036_validSudoku {
                 HashSet<Character> set = new HashSet<>();
                 for(int k = 0; k < 3; k++){
                     for(int t = 0; t < 3; t++){
-                        if(!(board[k+i][t+j] == '.') && !set.contains(board[k+i][t+j])){
+                        if(board[k+i][t+j] == '.' || (!(board[k+i][t+j] == '.') && !set.contains(board[k+i][t+j]))){
                             set.add(board[k+i][t+j]);
                         } else {
                             System.out.println(3);
@@ -51,7 +52,15 @@ public class M036_validSudoku {
     }
 
     public static void main(String[] args){
-        char[][] board = {{'.','8','7','6','5','4','3','2','1'},{'2','.','.','.','.','.','.','.','.'},{'3','.','.','.','.','.','.','.','.'},{'4','.','.','.','.','.','.','.','.'},{'5','.','.','.','.','.','.','.','.'},{'6','.','.','.','.','.','.','.','.'},{'7','.','.','.','.','.','.','.','.'},{'8','.','.','.','.','.','.','.','.'},{'9','.','.','.','.','.','.','.','.'}};
+        String[][] s = {{".",".","4",".",".",".","6","3","."},{".",".",".",".",".",".",".",".","."},{"5",".",".",".",".",".",".","9","."},{".",".",".","5","6",".",".",".","."},{"4",".","3",".",".",".",".",".","1"},{".",".",".","7",".",".",".",".","."},{".",".",".","5",".",".",".",".","."},{".",".",".",".",".",".",".",".","."},{".",".",".",".",".",".",".",".","."}};
+//        char[][] board = {{'.','8','7','6','5','4','3','2','1'},{'2','8','.','.','.','.','.','.','.'},{'3','.','.','.','.','.','.','.','.'},{'4','.','.','.','.','.','.','.','.'},{'5','.','.','.','.','.','.','.','.'},{'6','.','.','.','.','.','.','.','.'},{'7','.','.','.','.','.','.','.','.'},{'8','.','.','.','.','.','.','.','.'},{'9','.','.','.','.','.','.','.','.'}};
+char[][] board = new char[9][9];
+        for(int i = 0; i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                board[i][j] = s[i][j].toCharArray()[0];
+            }
+        }
         boolean b = isValidSudoku(board);
+        System.out.println(b);
     }
 }
