@@ -69,15 +69,23 @@ public class chorus {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] singer = new int[n];
-        boolean[] valueFind = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            singer[i] = sc.nextInt();
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        int[] singer = new int[n];
+        int n = 36;
+        String[] strings = "7 -15 31 49 -44 35 44 -47 -23 15 -11 10 -21 10 -13 0 -20 -36 22 -13 -39 -39 -31 -13 -27 -43 -6 40 5 -47 35 -8 24 -31 -24 -1".split(" ");
+        int[] singer = new int[strings.length];
+        for(int i = 0; i < strings.length; i++){
+            singer[i] = Integer.valueOf(strings[i]);
         }
-        int k = sc.nextInt();
-        int d = sc.nextInt();
-
+        boolean[] valueFind = new boolean[n];
+        int k = 3;
+        int d = 31;
+//        for (int i = 0; i < n; i++) {
+//            singer[i] = sc.nextInt();
+//        }
+//        int k = sc.nextInt();
+//        int d = sc.nextInt();
+//        System.out.println(maxProduct(n,singer,valueFind, k,d));
     }
 }
