@@ -1,46 +1,45 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * @author 郭朝彤
  * @date 2017/12/17.
  */
 public class Permutation {
-    private static boolean f[];
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int sz=sc.nextInt();
-        for(int i=0;i<sz;i++){
-            int sum=sc.nextInt();
-            f=new boolean[sum];
-            Arrays.fill(f, true);
-            int[] num=new int[sum];
-            for(int j=0;j<sum;j++){
-                num[j]=j+1;
-            }
-            int nn=sc.nextInt();
-            String str="";
-            count(num,str,nn);
+    public static ArrayList<String[]> arrayList = new ArrayList<>();
+    public static void swap(String[] str, int i, int j)
+    {
+        String temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+    public static void arrange (String[] str, int st, int len)
+    {
+        if (st == len - 1)
+        {
+            String[] strings = new String[len];
+            System.arraycopy(str,0,strings,0,len);
+            arrayList.add(strings);
         }
+        else
+        {
+            for (int i = st; i < len; i ++)
+            {
+                swap(str, st, i);
+                arrange(str, st + 1, len);
+                swap(str, st, i);
+            }
+        }
+
     }
     /**
-     *
-     * @param num 表示要排列的数组
-     * @param str 以排列好的字符串
-     * @param nn  剩下需要排列的个数，如果需要全排列，则nn为数组长度
+     * @param args
      */
-    private static void count(int[] num, String str, int nn) {
-        if(nn==0){
-            System.out.println(str);
-            return;
-        }
-        for(int i=0;i<num.length;i++){
-            if(!f[i]){
-                continue;
-            }
-            f[i]=false;
-            count(num,str+num[i],nn-1);
-            f[i]=true;
+    public static void main(String[] args) {
+        String str[] = {"a","b","c"};
+        arrange(str, 0, str.length);
+        for(String[] strings : arrayList){
+            System.out.println(Arrays.toString(strings));
         }
     }
 }
