@@ -36,10 +36,12 @@ public class Permutation {
      * @param args
      */
     public static void main(String[] args) {
-        String str[] = {"a","b","c"};
-        arrange(str, 0, str.length);
-        for(String[] strings : arrayList){
-            System.out.println(Arrays.toString(strings));
-        }
+//        String str[] = {"a","b","c"};
+//        arrange(str, 0, str.length);
+//        for(String[] strings : arrayList){
+//            System.out.println(Arrays.toString(strings));
+//        }
+        double d = 0.569871687;
+        System.out.format("%6f\n", d);
     }
 }
