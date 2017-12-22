@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
+/**排列
  * @author 郭朝彤
  * @date 2017/12/17.
  */
