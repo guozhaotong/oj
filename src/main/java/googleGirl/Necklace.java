@@ -13,24 +13,24 @@ public class Necklace {
         int n = scanner.nextInt();
         int[] l = new int[n];
         int[] r = new int[n];
-        int num = scanner.nextInt();
+        int m = scanner.nextInt();
         int i;
         for (i = 0; i < n; i++) {
             l[i] = scanner.nextInt();
             r[i] = scanner.nextInt();
         }
-        int[] f = new int[num + 1];
-        f[0] = 1;
-        int temp;
+        long[] ans = new long[m + 1];
+        ans[0] = 1;
+        long temp;
         for (i = 0; i < n; i++) {
-            for (int j = num; j >= 0; j--) {
+            for (int j = m; j >= 0; j--) {
                 temp = 0;
-                for (int t = l[i]; t < Math.min(j, r[i]); t++) {
-                    temp = temp + f[j - t];
+                for (int t = l[i]; t <= Math.min(j, r[i]); t++) {
+                    temp = temp + ans[j - t];
                 }
-                f[j] = temp;
+                ans[j] = temp;
             }
         }
-        System.out.println(f[num]);
+        System.out.println(ans[m]);
     }
 }
