@@ -18,3 +18,4 @@ public class ReplaceEnter {
         System.out.println(string.replaceAll("\n"," "));
     }
 }
+
