@@ -1,5 +1,6 @@
 package test;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +22,17 @@ public class Test {
             System.out.println(s);
             return s;
         } ).collect(Collectors.toList()));
+//        float o=0.00001f;
+        if (Double.compare(0.1 * 3 , 0.3)==0){
+            System.out.println(1);
+        }
+        try {
+            int i=1/0;
+        }
+        catch (Exception e){
+
+        }
+
 
     }
 }
