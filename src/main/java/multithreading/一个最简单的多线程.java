@@ -4,7 +4,7 @@ package multithreading;
  * @author 郭朝彤
  * @date 2018/3/7.
  */
-public class M1 extends Thread{
+public class 一个最简单的多线程 extends Thread{
     private static int i = 0;
     static Object object = new Object();
 
@@ -23,8 +23,8 @@ public class M1 extends Thread{
 
     public static void main(String[] args) {
         for(int k = 0; k < 10; k++){
-            Thread t1 = new M1();
-            Thread t2 = new M1();
+            Thread t1 = new 一个最简单的多线程();
+            Thread t2 = new 一个最简单的多线程();
             t1.start();
             t2.start();
         }

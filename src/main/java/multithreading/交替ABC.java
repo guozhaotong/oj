@@ -6,7 +6,7 @@ package multithreading;
  * @author 郭朝彤
  * @date 2018/3/7.
  */
-public class M2 extends Thread {
+public class 交替ABC extends Thread {
     String s;
     static int i = 0;
 
@@ -29,7 +29,7 @@ public class M2 extends Thread {
         }
     }
 
-    public M2(String s) {
+    public 交替ABC(String s) {
         this.s = s;
     }
 
@@ -38,9 +38,9 @@ public class M2 extends Thread {
     }
 
     public static void main(String[] args) {
-        Thread t1 = new M2("A");
-        Thread t2 = new M2("B");
-        Thread t3 = new M2("C");
+        Thread t1 = new 交替ABC("A");
+        Thread t2 = new 交替ABC("B");
+        Thread t3 = new 交替ABC("C");
         t1.start();
         t2.start();
         t3.start();
