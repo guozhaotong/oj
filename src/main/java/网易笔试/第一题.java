@@ -44,14 +44,28 @@ public class 第一题 {
             }
         }
         //(x1,y2)  (x2,y2) (x1,y1)  (x2,y1)
-
+        System.out.println(recoverNum(x1, x2, y1, y2, minX1, minY1, maxX2, maxY2));
     }
 
     public static int recoverNum(int[] x1, int[] x2, int[] y1, int[] y2, int minX1, int minY1, int maxX2, int maxY2) {
+        int maxNum = 0;
         int num = 0;
-        for (int ix = minX1; ix < maxX2; ix++) {
-            for (int jy = minY1; jy < maxY2; )
+        for (int i = minX1; i < maxX2; i++) {
+            for (int j = minY1; j < maxY2; j++) {
+                for (int k = 0; k < x1.length; k++) {
+                    if (isCover(x1, x2, y1, y2, k, i, j)) {
+                        num++;
+                    }
+                }
+                if (maxNum < num) {
+                    maxNum = num;
+                }
+                if (maxNum == x1.length) {
+                    return maxNum;
+                }
+            }
         }
+        return maxNum;
     }
 
     public static boolean isCover(int[] x1, int[] x2, int[] y1, int[] y2, int no, int tarX, int tarY) {
