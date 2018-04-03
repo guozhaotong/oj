@@ -17,7 +17,7 @@ public class Alain {
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
         k = scanner.nextInt();
-        System.out.println(n + " " + k);
+//        System.out.println(n + " " + k);
         int[][] r = new int[n][5];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < 5; j++) {

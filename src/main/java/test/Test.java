@@ -1,9 +1,9 @@
 package test;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
+
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Queue;
 
 /**
  * @author 郭朝彤
@@ -11,7 +11,10 @@ import java.util.stream.Collectors;
  */
 public class Test {
     public static void main(String[] args){
-        StringBuilder stringBuilder = null;
-        System.out.println(stringBuilder.length());
+        List<String> list1 = null;
+        List<String> list2 = null;
+        System.out.println(list1 == list2);
+        Queue<String> queue = new LinkedList<>();
     }
+
 }

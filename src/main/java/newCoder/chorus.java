@@ -1,7 +1,6 @@
 package newCoder;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * @author 郭朝彤
@@ -72,6 +71,7 @@ public class chorus {
 //        Scanner sc = new Scanner(System.in);
 //        int n = sc.nextInt();
 //        int[] singer = new int[n];
+
         int n = 36;
         String[] strings = "7 -15 31 49 -44 35 44 -47 -23 15 -11 10 -21 10 -13 0 -20 -36 22 -13 -39 -39 -31 -13 -27 -43 -6 40 5 -47 35 -8 24 -31 -24 -1".split(" ");
         int[] singer = new int[strings.length];
