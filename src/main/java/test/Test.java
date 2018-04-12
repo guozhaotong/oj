@@ -1,9 +1,8 @@
 package test;
 
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * @author 郭朝彤
@@ -11,10 +10,8 @@ import java.util.Queue;
  */
 public class Test {
     public static void main(String[] args){
-        List<String> list1 = null;
-        List<String> list2 = null;
-        System.out.println(list1 == list2);
-        Queue<String> queue = new LinkedList<>();
+        List<String> list1 = new ArrayList<>();
+        System.out.println(list1.getClass().getName());
     }
 
 }
